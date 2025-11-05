@@ -1,0 +1,13 @@
+# Ignore any files with these extensions
+*.log
+*.cache
+*.secret
+*.key
+
+# Ignore anything containing "pass" or "token"
+*pass*
+*token*
+
+# Ignore specific directories
+cache/
+node_modules/

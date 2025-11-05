@@ -1,0 +1,17 @@
+[general]
+framerate = 60
+bars = 16
+bar_width = 4
+bar_spacing = 1
+
+[input]
+method = pulse
+
+[output]
+method = ncurses
+channels = mono
+
+[color]
+gradient = 1
+gradient_color_1 = '#83A598'
+gradient_color_2 = '#EBDBB2'

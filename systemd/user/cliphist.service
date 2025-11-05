@@ -1,0 +1,15 @@
+[Unit]
+Description=Cliphist clipboard history daemon
+
+[Service]
+ExecStart=/usr/bin/cliphist listen
+Restart=on-failure
+Environment=XDG_RUNTIME_DIR=%t
+Environment=WAYLAND_DISPLAY=wayland-1
+ExecStartPre=/bin/sleep 5
+
+
+
+[Install]
+WantedBy=default.target
+
