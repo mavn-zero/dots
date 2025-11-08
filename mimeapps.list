@@ -1,27 +1,25 @@
 [Default Applications]
-# --- Image Viewer ---
 image/jpeg=imv.desktop
 image/png=imv.desktop
 image/gif=imv.desktop
 image/webp=imv.desktop
 image/bmp=imv.desktop
-
-# --- Video Player ---
 video/mp4=mpv.desktop
 video/webm=mpv.desktop
 video/x-matroska=mpv.desktop
 video/x-msvideo=mpv.desktop
-
-# --- Audio Player ---
 audio/mpeg=mpv.desktop
 audio/ogg=mpv.desktop
 audio/wav=mpv.desktop
-
-# --- Document Viewer ---
 application/pdf=firefox.desktop
-
-# --- 3D Modeler ---
 application/x-blender=blender.desktop
-
-# --- File Manager (for opening folders) ---
 inode/directory=thunar.desktop
+application/pdf=org.kde.okular.desktop
+application/postscript=org.kde.okular.desktop
+image/vnd.djvu=org.kde.okular.desktop
+application/epub+zip=org.kde.okular.desktop
+application/x-dvi=org.kde.okular.desktop
+application/vnd.ms-xpsdocument=org.kde.okular.desktop
+
+[Added Associations]
+image/jpeg=firefox.desktop;imv-dir.desktop;swappy.desktop;

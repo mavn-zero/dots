@@ -1,4 +1,6 @@
 # --- Mako Config ---
+
+#https://man.archlinux.org/man/mako.5.en for keywords
 #
 # See 'man 5 mako' for all options
 
@@ -9,7 +11,7 @@ font=ProFont Nerd Font 10
 anchor=top-right
 
 # Sizing and spacing
-padding=10
+padding=20
 margin=15
 width=300
 border-size=2
@@ -21,8 +23,8 @@ text-color=#EBDBB2
 border-color=#83A598
 
 # How long to show (in milliseconds)
-default-timeout=5000
+default-timeout=2000
 
-# Click to dismiss
-on-click=dismiss
-on-click-middle=dismiss-all
+# button to dismiss
+on-button-left=dismiss
+on-button-middle=dismiss-all
