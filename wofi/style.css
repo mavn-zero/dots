@@ -1,0 +1,51 @@
+/*ln -s ~/dots/wofi/style.css ~/.config/wofi/style.css for symlink*/
+
+/* Main window */
+window {
+    margin: 5px;
+    background-color: #282a36; /* Dark background */
+    border: 2px solid #44475a;  /* Slightly lighter border */
+    border-radius: 8px;
+}
+
+/* Search input bar */
+#input {
+    margin: 5px;
+    padding: 8px;
+    border: none;
+    color: #f8f8f2;             /* Light text */
+    background-color: #44475a; /* Slightly lighter background */
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Inner box containing results */
+#inner-box {
+    margin: 5px;
+    background-color: #282a36;
+}
+
+/* Result entries */
+#entry {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: #f8f8f2; /* Light text */
+}
+
+/* Selected result entry */
+#entry:selected {
+    background-color: #6272a4; /* Selection color */
+    color: #f8f8f2;
+    font-weight: bold;
+}
+
+/* Text of the result */
+#text {
+    color: #f8f8f2;
+}
+
+/* Text of the selected result */
+#entry:selected #text {
+    color: #f8f8f2;
+}
