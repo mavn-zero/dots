@@ -1,0 +1,101 @@
+window#waybar {
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#waybar {
+    background-color: #1E1E2E;
+    color: #CDD6F4;
+    border: none;
+    border-radius: 0;
+}
+
+#network,
+#bluetooth,
+#battery,
+#tray,
+#workspaces,
+#pulseaudio,
+#clock {
+    padding: 6px 0px;
+    margin: 4px 0px;
+}
+
+#network { 
+    color: #ABE9B3; 
+    margin-right: 8px;
+}
+#network.disconnected { color: #F38BA8; }
+
+#bluetooth { 
+    color: #89B4FA;
+}
+#bluetooth.connected {
+    color: #89B4FA;
+}
+#bluetooth.disabled { 
+    color: #6C7086;
+}
+
+#battery { 
+    color: #F9E2AF;
+    margin-right: 0px;
+}
+
+#battery:not(.charging):not(.plugged) {
+    margin-right: 8px;
+}
+
+#battery.charging, #battery.plugged { 
+    color: #F9E2AF;
+}
+
+#battery.warning { color: #FAB387; }
+#battery.critical { color: #F38BA8; }
+
+#tray {
+    padding: 6px 0px;
+}
+
+/* --- THIS BLOCK IS UPDATED --- */
+#workspaces {
+    padding: 10px 0;
+    margin-right: 2px; /* Tweak: Pulls the icons left */
+}
+/* --- END OF UPDATE --- */
+
+#workspaces button {
+    padding: 5px 0px;
+    color: #45475A;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+#workspaces button.active {
+    color: #89B4FA;
+}
+
+#workspaces button.urgent {
+    color: #F38BA8;
+}
+
+#pulseaudio {
+    color: #F38BA8;
+    font-size: 20px;
+}
+#pulseaudio.muted {
+    color: #6C7086;
+}
+
+#clock {
+    background-color: #000000;
+    color: #E0E0E0;
+    border-radius: 8px;
+    margin: 6px 4px;
+    padding: 8px 0px;
+    font-size: 22px;
+    font-weight: 700;
+    border: 1px solid #333333;
+}

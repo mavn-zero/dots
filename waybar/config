@@ -1,0 +1,76 @@
+{
+    // -------------------------------------------------------------------------
+    // Global Config
+    // -------------------------------------------------------------------------
+    "layer": "top",
+    "position": "left",
+    "width": 48, // <-- FIX: Thinner bar
+    
+    // -------------------------------------------------------------------------
+    // Module Groups
+    // -------------------------------------------------------------------------
+    "modules-left": [ "network", "bluetooth", "battery", "tray" ],
+    "modules-center": [ "hyprland/workspaces" ],
+    "modules-right": [ "pulseaudio", "clock" ],
+
+    // -------------------------------------------------------------------------
+    // Module Configs
+    // -------------------------------------------------------------------------
+
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰈁",
+        "format-disconnected": "󰤮",
+        "tooltip-format": "{essid} ({signalStrength}%)",
+        "on-click": "kitty nmtui" // REMEMBER TO CHANGE THIS
+    },
+    
+    "bluetooth": {
+        "format": "",
+        "format-disabled": " ",
+        "format-connected": "",
+        "tooltip-format": "{device_alias}",
+        "on-click": "kitty bluetoothctl" // REMEMBER TO CHANGE THIS
+    },
+    
+    "battery": {
+        "states": { 
+            "warning": 30,
+            "critical": 25
+        },
+        "format": "{icon}",
+        "format-charging": "",
+        "format-plugged": "",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "{capacity}%"
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "󰖁",
+        "tooltip-format": "Volume: {volume}%",
+        "format-icons": { "default": ["󰖀", "󰕾"] },
+        "on-click": "pavucontrol",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    },
+    
+    "hyprland/workspaces": {
+        "orientation": "vertical",
+        "format": "{icon}",
+        "on-click": "activate",
+        "on-scroll-up": "exec ~/dots/waybar/handle_scroll.sh up",
+        "on-scroll-down": "exec ~/dots/waybar/handle_scroll.sh down",
+        "format-icons": { "default": "", "active": "", "urgent": "" },
+        "persistent_workspaces": { "1": [], "2": [], "3": [], "4": [], "5": [] }
+    },
+    
+    "clock": {
+        "format": "{:%H\n%M}",
+        "tooltip-format": "<big>{:%Y-%m-%d}</big>\n<tt>{calendar}</tt>"
+    }
+}
