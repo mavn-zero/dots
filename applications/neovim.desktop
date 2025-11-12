@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Neovim
+Comment=Launch Neovim in Kitty
+# We tell it to run kitty, and tell kitty to run nvim
+Exec=kitty nvim
+Icon=nvim
+# This tells the system it does not need a *separate* terminal
+Terminal=false
+Type=Application
+Categories=Utility;TextEditor;Development;

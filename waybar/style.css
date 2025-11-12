@@ -17,29 +17,43 @@ window#waybar {
 #tray,
 #workspaces,
 #pulseaudio,
-#clock {
+#clock,
+#custom-power {
     padding: 6px 0px;
     margin: 4px 0px;
 }
 
-#network { 
-    color: #ABE9B3; 
+#network {
+    color: #ABE9B3;
+    /* Green when connected */
     margin-right: 8px;
 }
-#network.disconnected { color: #F38BA8; }
 
-#bluetooth { 
-    color: #89B4FA;
+#network.disconnected {
+    color: #F38BA8;
+    /* Red when on but not connected */
 }
+
+#bluetooth.on {
+    color: #F38BA8;
+    /* Red when on but not connected */
+}
+
 #bluetooth.connected {
     color: #89B4FA;
-}
-#bluetooth.disabled { 
-    color: #6C7086;
+    /* Blue when connected */
 }
 
-#battery { 
+#bluetooth.off,
+#bluetooth.disabled {
+    color: #45475A;
+    /* Dark gray when off */
+}
+
+/* --- THIS BLOCK IS UPDATED --- */
+#battery {
     color: #F9E2AF;
+    /* Yellow (discharging) */
     margin-right: 0px;
 }
 
@@ -47,23 +61,36 @@ window#waybar {
     margin-right: 8px;
 }
 
-#battery.charging, #battery.plugged { 
-    color: #F9E2AF;
+#battery.charging {
+    color: #ABE9B3;
+    /* Green (actively charging) */
 }
 
-#battery.warning { color: #FAB387; }
-#battery.critical { color: #F38BA8; }
+#battery.plugged,
+#battery.full {
+    color: #CDD6F4;
+    /* White (on AC, not charging) */
+}
+
+#battery.warning {
+    color: #FAB387;
+    /* Orange */
+}
+
+#battery.critical {
+    color: #F38BA8;
+    /* Red */
+}
+/* --- END OF UPDATE --- */
 
 #tray {
     padding: 6px 0px;
 }
 
-/* --- THIS BLOCK IS UPDATED --- */
 #workspaces {
     padding: 10px 0;
-    margin-right: 2px; /* Tweak: Pulls the icons left */
+    margin-right: 2px;
 }
-/* --- END OF UPDATE --- */
 
 #workspaces button {
     padding: 5px 0px;
@@ -85,6 +112,7 @@ window#waybar {
     color: #F38BA8;
     font-size: 20px;
 }
+
 #pulseaudio.muted {
     color: #6C7086;
 }
@@ -97,5 +125,16 @@ window#waybar {
     padding: 8px 0px;
     font-size: 22px;
     font-weight: 700;
+    border: 1px solid #333333;
+}
+
+/* --- NEW BLOCK --- */
+#custom-power {
+    background-color: #000000;
+    color: #F38BA8;
+    border-radius: 8px;
+    margin: 6px 4px;
+    padding: 6px 0px;
+    font-size: 20px;
     border: 1px solid #333333;
 }

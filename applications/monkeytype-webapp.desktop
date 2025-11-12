@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Monkeytype
+Comment=Launch Monkeytype as a chromeless webapp
+Exec=chromium --app=https://monkeytype.com
+Icon=monkeytype
+Terminal=false
+Type=Application
+Categories=Network;Game;

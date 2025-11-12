@@ -1,76 +1,102 @@
 {
-    // -------------------------------------------------------------------------
-    // Global Config
-    // -------------------------------------------------------------------------
     "layer": "top",
     "position": "left",
-    "width": 48, // <-- FIX: Thinner bar
-    
-    // -------------------------------------------------------------------------
-    // Module Groups
-    // -------------------------------------------------------------------------
-    "modules-left": [ "network", "bluetooth", "battery", "tray" ],
-    "modules-center": [ "hyprland/workspaces" ],
-    "modules-right": [ "pulseaudio", "clock" ],
-
-    // -------------------------------------------------------------------------
-    // Module Configs
-    // -------------------------------------------------------------------------
-
+    "width": 48,
+    "modules-left": [
+        "network",
+        "bluetooth",
+        "battery",
+        "tray"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "clock",
+        "custom/power"
+    ],
     "network": {
         "format-wifi": "",
         "format-ethernet": "󰈁",
         "format-disconnected": "󰤮",
         "tooltip-format": "{essid} ({signalStrength}%)",
-        "on-click": "kitty nmtui" // REMEMBER TO CHANGE THIS
+        "on-click": "kitty nmtui"
     },
-    
     "bluetooth": {
         "format": "",
-        "format-disabled": " ",
+        "format-on": "",
         "format-connected": "",
-        "tooltip-format": "{device_alias}",
-        "on-click": "kitty bluetoothctl" // REMEMBER TO CHANGE THIS
+        "format-disabled": "",
+        "format-off": "",
+        "tooltip-format": "Bluetooth",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "on-click": "kitty bluetoothctl"
     },
-    
     "battery": {
-        "states": { 
+        "states": {
             "warning": 30,
             "critical": 25
         },
         "format": "{icon}",
         "format-charging": "",
         "format-plugged": "",
-        "format-icons": ["", "", "", "", ""],
+        "format-full": "",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
         "tooltip-format": "{capacity}%"
     },
     "tray": {
         "icon-size": 18,
         "spacing": 8
     },
-
     "pulseaudio": {
         "format": "{icon}",
         "format-muted": "󰖁",
         "tooltip-format": "Volume: {volume}%",
-        "format-icons": { "default": ["󰖀", "󰕾"] },
+        "format-icons": {
+            "default": [
+                "󰖀",
+                "󰕾"
+            ]
+        },
         "on-click": "pavucontrol",
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
     },
-    
     "hyprland/workspaces": {
         "orientation": "vertical",
         "format": "{icon}",
         "on-click": "activate",
         "on-scroll-up": "exec ~/dots/waybar/handle_scroll.sh up",
         "on-scroll-down": "exec ~/dots/waybar/handle_scroll.sh down",
-        "format-icons": { "default": "", "active": "", "urgent": "" },
-        "persistent_workspaces": { "1": [], "2": [], "3": [], "4": [], "5": [] }
+        "format-icons": {
+            "default": "",
+            "active": "",
+            "urgent": ""
+        },
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
     },
-    
     "clock": {
         "format": "{:%H\n%M}",
         "tooltip-format": "<big>{:%Y-%m-%d}</big>\n<tt>{calendar}</tt>"
+    },
+    "custom/power": {
+        "format": "",
+        "on-click": "exec ~/dots/waybar/powermenu.sh",
+        "tooltip": true,
+        "tooltip-format": "Power Menu"
     }
 }
