@@ -7,6 +7,8 @@
 # Ignore anything containing "pass" or "token"
 *pass*
 *token*
+systemd/
+applications/
 
 # Ignore specific directories
 cache/

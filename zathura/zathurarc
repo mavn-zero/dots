@@ -1,2 +1,37 @@
 set recolor true
 set recolor-darkcolor "#dcdcdc"
+
+
+# --- Appearance (Gruvbox-like Theme) ---
+
+# Default page background
+set default-bg                  "#282828"
+# Default text/foreground color
+set default-fg                  "#ebdbb2"
+
+# --- Status Bar (bottom) ---
+set statusbar-bg                "#3c3836"
+set statusbar-fg                "#ebdbb2"
+
+# --- Input Bar (when you type commands like ':') ---
+set inputbar-bg                 "#282828"
+set inputbar-fg                 "#d5c4a1"
+
+# --- Other UI Elements ---
+# Color for highlighted links
+set highlight-color             "#fabd2f"
+# Color for the "active" highlighted link (when selected)
+set highlight-active-color      "#b8bb26"
+
+# Color of the page separator (in continuous mode)
+set page-separator-color        "#3c3836"
+
+# --- Options ---
+# Don't show status bar by default
+# set statusbar-show            false
+
+# Show page number in status bar
+set statusbar-format            "[%p/%P] %f"
+
+# Set sandbox mode to 'strict' for security (requires zathura-seccomp)
+set sandbox                     strict

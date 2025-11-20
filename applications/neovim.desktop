@@ -5,6 +5,6 @@ Comment=Launch Neovim in Kitty
 Exec=kitty nvim
 Icon=nvim
 # This tells the system it does not need a *separate* terminal
-Terminal=false
+Terminal=true
 Type=Application
 Categories=Utility;TextEditor;Development;
