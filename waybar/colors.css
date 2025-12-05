@@ -1,35 +1,35 @@
 /* Wallust Waybar Template - Semantic & Vibrant */
 
 /* 1. Base System Colors */
-@define-color background #1C1F1F;
-@define-color foreground #F6FAFE;
-@define-color cursor #AEC0B3;
+@define-color background #121415;
+@define-color foreground #C5D5D5;
+@define-color cursor #6C8184;
 
 /* 2. Standard Palette (0-15) */
-@define-color color0 #424545;
-@define-color color1 #475665;
-@define-color color2 #678567;
-@define-color color3 #698A9D;
-@define-color color4 #9F99B6;
-@define-color color5 #A5B1A8;
-@define-color color6 #E5F1FD;
-@define-color color7 #EAF0F6;
-@define-color color8 #A3A8AC;
-@define-color color9 #475665;
-@define-color color10 #678567;
-@define-color color11 #698A9D;
-@define-color color12 #9F99B6;
-@define-color color13 #A5B1A8;
-@define-color color14 #E5F1FD;
-@define-color color15 #EAF0F6;
+@define-color color0 #393C3C;
+@define-color color1 #031618;
+@define-color color2 #082B32;
+@define-color color3 #0D4658;
+@define-color color4 #104C4F;
+@define-color color5 #166473;
+@define-color color6 #238587;
+@define-color color7 #A3BABB;
+@define-color color8 #728283;
+@define-color color9 #031618;
+@define-color color10 #082B32;
+@define-color color11 #0D4658;
+@define-color color12 #104C4F;
+@define-color color13 #166473;
+@define-color color14 #238587;
+@define-color color15 #A3BABB;
 
 /* 3. SEMANTIC ALIASES (The Magic Part) 
    We map specific roles to the 'Bright' variants (9-14) 
    to ensure they pop against the dark background. */
 
-@define-color urgent      #475665;   /* Bright Red */
-@define-color success     #678567;  /* Bright Green */
-@define-color warning     #698A9D;  /* Bright Yellow */
-@define-color active      #9F99B6;  /* Bright Blue */
-@define-color audio       #A5B1A8;  /* Bright Purple */
-@define-color info        #E5F1FD;  /* Bright Cyan */
+@define-color urgent      #031618;   /* Bright Red */
+@define-color success     #082B32;  /* Bright Green */
+@define-color warning     #0D4658;  /* Bright Yellow */
+@define-color active      #104C4F;  /* Bright Blue */
+@define-color audio       #166473;  /* Bright Purple */
+@define-color info        #238587;  /* Bright Cyan */

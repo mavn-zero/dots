@@ -19,12 +19,12 @@ channels = mono
 [color]
 gradient = 1
 gradient_count = 6
-gradient_color_1 = '#475665'
-gradient_color_2 = '#678567'
-gradient_color_3 = '#698A9D'
-gradient_color_4 = '#9F99B6'
-gradient_color_5 = '#A5B1A8'
-gradient_color_6 = '#E5F1FD'
+gradient_color_1 = '#031618'
+gradient_color_2 = '#082B32'
+gradient_color_3 = '#0D4658'
+gradient_color_4 = '#104C4F'
+gradient_color_5 = '#166473'
+gradient_color_6 = '#238587'
 
-#foreground = '#F6FAFE'
-#background = '#1C1F1F'
+#foreground = '#C5D5D5'
+#background = '#121415'
