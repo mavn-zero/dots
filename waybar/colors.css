@@ -1,35 +1,27 @@
-/* Wallust Waybar Template - Semantic & Vibrant */
+@define-color background #1F1F29;
+@define-color foreground #FEF8F5;
+@define-color cursor #B7A2A8;
 
-/* 1. Base System Colors */
-@define-color background #121415;
-@define-color foreground #C5D5D5;
-@define-color cursor #6C8184;
+@define-color color0 #454551;
+@define-color color1 #703902;
+@define-color color2 #704C5B;
+@define-color color3 #7E8BAF;
+@define-color color4 #DB730A;
+@define-color color5 #CE868A;
+@define-color color6 #FBEAE1;
+@define-color color7 #F5ECE8;
+@define-color color8 #ABA5A2;
+@define-color color9 #703902;
+@define-color color10 #704C5B;
+@define-color color11 #7E8BAF;
+@define-color color12 #DB730A;
+@define-color color13 #CE868A;
+@define-color color14 #FBEAE1;
+@define-color color15 #F5ECE8;
 
-/* 2. Standard Palette (0-15) */
-@define-color color0 #393C3C;
-@define-color color1 #031618;
-@define-color color2 #082B32;
-@define-color color3 #0D4658;
-@define-color color4 #104C4F;
-@define-color color5 #166473;
-@define-color color6 #238587;
-@define-color color7 #A3BABB;
-@define-color color8 #728283;
-@define-color color9 #031618;
-@define-color color10 #082B32;
-@define-color color11 #0D4658;
-@define-color color12 #104C4F;
-@define-color color13 #166473;
-@define-color color14 #238587;
-@define-color color15 #A3BABB;
-
-/* 3. SEMANTIC ALIASES (The Magic Part) 
-   We map specific roles to the 'Bright' variants (9-14) 
-   to ensure they pop against the dark background. */
-
-@define-color urgent      #031618;   /* Bright Red */
-@define-color success     #082B32;  /* Bright Green */
-@define-color warning     #0D4658;  /* Bright Yellow */
-@define-color active      #104C4F;  /* Bright Blue */
-@define-color audio       #166473;  /* Bright Purple */
-@define-color info        #238587;  /* Bright Cyan */
+@define-color urgent      #703902;
+@define-color success     #CE868A;
+@define-color warning     #7E8BAF;
+@define-color active      #DB730A;
+@define-color audio       #CE868A;
+@define-color info        #FBEAE1;

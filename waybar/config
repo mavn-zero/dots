@@ -67,8 +67,8 @@
             ]
         },
         "on-click": "pavucontrol",
-        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%"
     },
     "hyprland/workspaces": {
         "orientation": "vertical",
@@ -94,9 +94,7 @@
         "tooltip-format": "<big>{:%Y-%m-%d}</big>\n<tt>{calendar}</tt>"
     },
     "custom/power": {
-        "format": "",
+        "format": "",
         "on-click": "exec ~/dots/waybar/powermenu.sh",
-        "tooltip": true,
-        "tooltip-format": "Power Menu"
     }
 }

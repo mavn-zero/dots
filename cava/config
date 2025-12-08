@@ -1,30 +1,24 @@
-#Note Edit wallust template to configure cava because wallust template overrites cava config when used. 
-
 [general]
 
 framerate = 60
 bar_width = 2
 bar_spacing = 1
+auto_sens = 1
 sensitivity = 68
+center_align = 1
+sleep_timer = 1
 
 [input]
 method = pulse
 
 [output]
-method = ncurses
+method = noncurses
 channels = mono
 
-
-
 [color]
-gradient = 1
-gradient_count = 6
-gradient_color_1 = '#031618'
-gradient_color_2 = '#082B32'
-gradient_color_3 = '#0D4658'
-gradient_color_4 = '#104C4F'
-gradient_color_5 = '#166473'
-gradient_color_6 = '#238587'
 
-#foreground = '#C5D5D5'
-#background = '#121415'
+theme = adaptive
+
+[smoothing]
+
+noise_reduction = 77

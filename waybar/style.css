@@ -13,7 +13,7 @@ window#waybar {
     font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
     font-size: 18px;
     font-weight: bold;
-    background-color: @background; 
+    background-color: alpha(@background, 0.6); 
     color: @foreground;
 }
 
@@ -32,7 +32,7 @@ window#waybar {
 #pulseaudio,
 #clock,
 #custom-power {
-    padding: 6px 0px;
+    padding: 4px 0px;
     margin: 4px 0px;
 }
 
@@ -42,26 +42,26 @@ window#waybar {
 
 /* --- NETWORK --- */
 #network {
-    color: @success; /* Uses Bright Green */
+    color: @success; 
     margin-right: 8px;
 }
 
 #network.disconnected {
-    color: @urgent; /* Uses Bright Red */
+    color: @urgent; 
 }
 
 /* --- BLUETOOTH --- */
 #bluetooth.on {
-    color: @urgent; /* Red (On but not connected) */
+    color: @urgent; 
 }
 
 #bluetooth.connected {
-    color: @active; /* Uses Bright Blue */
+    color: @success; 
 }
 
 #bluetooth.off,
 #bluetooth.disabled {
-    color: @color8; /* Dimmed Grey */
+    color: @color8; 
 }
 
 /* --- BATTERY --- */
@@ -130,23 +130,36 @@ window#waybar {
 
 /* --- CLOCK --- */
 #clock {
-    background-color: @color0; /* Dark variant from palette */
+    background-color: alpha(@background, 0.6); /* Dark variant from palette */
     color: @foreground;
     border-radius: 8px;
     margin: 6px 4px;
     padding: 8px 0px;
     font-size: 22px;
     font-weight: 700;
-    border: 1px solid @color8;
+    border: 2px solid @color8;
 }
 
 /* --- CUSTOM POWER --- */
 #custom-power {
-    background-color: @color0;
-    color: @urgent; /* Uses Bright Red */
+    color: @foreground; 
     border-radius: 8px;
-    margin: 6px 4px;
-    padding: 6px 0px;
+    margin: 4px 4px;
+    
     font-size: 20px;
-    border: 1px solid @color8;
+    border: 2px solid @color8;
+
+    /* 1. FORCE A PERFECT SQUARE */
+    /* Adjust '34px' up or down to match your bar width */
+    min-width: 30px;
+    min-height: 34px;
+
+    /* 2. CENTER THE ICON */
+    /* Remove generic padding that distorts the shape */
+    padding: 0px;
+    
+    /* 3. OPTICAL CORRECTION */
+    /* If it still looks "left", add pixels to the LEFT padding to push it right. */
+    /* You might need to decrease min-width by the same amount to keep it square. */
+    padding-right: 6px; 
 }
