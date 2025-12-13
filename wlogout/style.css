@@ -1,50 +1,49 @@
-* {
-	background-image: none;
-	box-shadow: none;
-}
-
+/* Window Background - semi-transparent dark grey */
 window {
-	background-color: rgba(12, 12, 12, 0.6);
+    background-color: rgba(12, 12, 12, 0.8);
 }
 
+/* Button Reset */
 button {
-    border-radius: 0;
-    border-color: black;
-	text-decoration-color: #FFFFFF;
+    background-color: #1E1E1E;
+    border-radius: 16px;        /* Rounded corners */
+    border: 2px solid #000000;  /* Subtle border */
+    margin: 10px;               /* Space between buttons */
     color: #FFFFFF;
-	background-color: #1E1E1E;
-	border-style: solid;
-	border-width: 1px;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 25%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    transition: background-color 0.2s ease-in-out; /* Smooth hover */
 }
 
+/* Hover Effect - Uses your preferred Purple */
 button:focus, button:active, button:hover {
-	background-color: #3700B3;
-	outline-style: none;
+    background-color: #3700B3;
+    border-color: #5800E3;     /* Lighter purple border on hover */
+    outline-style: none;
 }
 
+/* Icons */
 #lock {
-    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
 }
 
 #logout {
-    background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+    background-image: image(url("/usr/share/wlogout/icons/logout.png"));
 }
 
 #suspend {
-    background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
 }
 
 #hibernate {
-    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"));
 }
 
 #shutdown {
-    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
 }
 
 #reboot {
-    background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
 }

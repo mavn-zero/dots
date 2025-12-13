@@ -1,42 +1,63 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 
 # --- Configuration ---
-# Point this to your actual decorations file location
-DECO_FILE="$HOME/dots/hypr/decorations.conf"
+# Your preferred aesthetic defaults
+DEFAULT_IN=5
+DEFAULT_OUT=10
+DEFAULT_ROUND=10
+DEFAULT_BORDER=2
 
-# --- Parsing Logic ---
-# We use grep to find the line and awk to grab the value after the equals sign.
-# This handles both "gaps_in = 5" and "gaps_in=5"
-# tr -d ' ' removes any accidental whitespace.
+# Temporary state file
+STATE_FILE="/tmp/hypr_gaps.state"
 
-# 1. Extract Gaps In
-default_gaps_in=$(grep -m 1 "gaps_in" "$DECO_FILE" | awk -F '=' '{print $2}' | tr -d ' ')
+# --- Get Current Rounding State ---
+# We use rounding as the "master switch" to know which mode we are in.
+# awk grabs the number after 'int:'
+CURRENT_ROUND=$(hyprctl getoption decoration:rounding | awk '/int:/ {print $2}')
 
-# 2. Extract Gaps Out
-default_gaps_out=$(grep -m 1 "gaps_out" "$DECO_FILE" | awk -F '=' '{print $2}' | tr -d ' ')
+# Safety check: Default to 0 if the command fails to return a number
+CURRENT_ROUND=${CURRENT_ROUND:-0}
 
-# 3. Extract Rounding (Optional, if you toggle rounding too)
-default_rounding=$(grep -m 1 "rounding" "$DECO_FILE" | awk -F '=' '{print $2}' | tr -d ' ')
+if [[ "$CURRENT_ROUND" -eq 0 ]]; then
+    # ============================================================
+    # MODE: Currently Zero (Minimal) -> SWITCH TO AESTHETIC
+    # ============================================================
+    
+    # Try to load saved values from the temp file
+    if [[ -f "$STATE_FILE" ]]; then
+        source "$STATE_FILE"
+    fi
 
-# Fallback: If parsing fails (empty strings), set safe defaults to prevent errors
-default_gaps_in=${default_gaps_in:-5}
-default_gaps_out=${default_gaps_out:-10}
-default_rounding=${default_rounding:-10}
+    # Restore values (Use SAVED if they exist, otherwise use DEFAULTS)
+    hyprctl keyword general:gaps_in ${SAVED_IN:-$DEFAULT_IN}
+    hyprctl keyword general:gaps_out ${SAVED_OUT:-$DEFAULT_OUT}
+    hyprctl keyword decoration:rounding ${SAVED_ROUND:-$DEFAULT_ROUND}
+    hyprctl keyword general:border_size ${SAVED_BORDER:-$DEFAULT_BORDER}
+    
+    # Optional: Visual Confirmation
+    # notify-send "Hyprland" "Aesthetic Mode Active"
 
-
-# --- Toggle Logic ---
-
-# Get current state via hyprctl
-current_gap=$(hyprctl getoption general:gaps_out | awk '/int:/ {print $2}')
-
-if [[ "$current_gap" -eq 0 ]]; then
-    # State is currently 0, so RESTORE defaults from file
-    hyprctl keyword general:gaps_in $default_gaps_in
-    hyprctl keyword general:gaps_out $default_gaps_out
-    hyprctl keyword decoration:rounding $default_rounding
 else
-    # State is currently active, so ZERO it out
+    # ============================================================
+    # MODE: Currently Rounded (Aesthetic) -> SWITCH TO MINIMAL
+    # ============================================================
+
+    # 1. Get current values to save them
+    CUR_IN=$(hyprctl getoption general:gaps_in | awk '/int:/ {print $2}')
+    CUR_OUT=$(hyprctl getoption general:gaps_out | awk '/int:/ {print $2}')
+    CUR_BORDER=$(hyprctl getoption general:border_size | awk '/int:/ {print $2}')
+    
+    # 2. Save state to file
+    echo "SAVED_IN=$CUR_IN" > "$STATE_FILE"
+    echo "SAVED_OUT=$CUR_OUT" >> "$STATE_FILE"
+    echo "SAVED_ROUND=$CURRENT_ROUND" >> "$STATE_FILE"
+    echo "SAVED_BORDER=$CUR_BORDER" >> "$STATE_FILE"
+
+    # 3. Apply Zero/Full Screen Settings
     hyprctl keyword general:gaps_in 0
     hyprctl keyword general:gaps_out 0
     hyprctl keyword decoration:rounding 0
+    
+    # Optional: Visual Confirmation
+    # notify-send "Hyprland" "Focus Mode Active"
 fi

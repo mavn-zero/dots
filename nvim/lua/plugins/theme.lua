@@ -1,65 +1,28 @@
 return {
-  -- 1. Disable the default TokyoNight theme
-  { "folke/tokyonight.nvim", enabled = false },
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		opts = {
+			style = "moon", -- 'storm' is default, 'moon' is slightly darker, 'night' is darkest.
+			-- 'moon' usually looks best with transparency.
+			transparent = true, -- <--- The Master Switch
+			styles = {
+				sidebars = "transparent", -- This removes the bg from Neo-tree / Nvim-tree
+				floats = "transparent", -- This removes the bg from floating windows (Telescope, etc.)
+			},
+			-- Fix for borders to ensure they look crisp on transparent backgrounds
+			on_highlights = function(hl, c)
+				hl.Border = { fg = c.blue0, bg = "none" } -- Adjust border color if needed
+				hl.FloatBorder = { fg = c.blue0, bg = "none" }
+			end,
+		},
+	},
 
-  -- 2. Install Catppuccin
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    opts = {
-      flavour = "mocha", -- Ensure we are locked to Mocha
-      transparent_background = true,
-      term_colors = true,
-      integrations = {
-        cmp = true,
-        gitsigns = true,
-        nvimtree = true,
-        treesitter = true,
-        notify = false,
-        mini = { enabled = true, indentscope_color = "" },
-        -- Enable these so we can control their backgrounds
-        mason = true,
-        noice = true,
-        snacks = true,
-        native_lsp = {
-          enabled = true,
-          underlines = {
-            errors = { "undercurl" },
-            hints = { "undercurl" },
-            warnings = { "undercurl" },
-            information = { "undercurl" },
-          },
-        },
-      },
-      -- 3. THE MAGIC SECTION: Force Dark Backgrounds on UI Elements
-      custom_highlights = function(colors)
-        return {
-          -- Status Line: distinct dark background
-          StatusLine = { bg = colors.mantle },
-          StatusLineNC = { bg = colors.mantle }, -- inactive status line
-
-          -- Popups / Floating Windows: distinct dark background
-          NormalFloat = { bg = colors.mantle },
-          FloatBorder = { bg = colors.mantle, fg = colors.blue },
-
-          -- Autocomplete Menu (cmp): distinct dark background
-          Pmenu = { bg = colors.crust, fg = colors.text },
-          PmenuSel = { bg = colors.surface0, fg = colors.text, style = { "bold" } },
-
-          -- Lazy/Mason Windows
-          LazyNormal = { bg = colors.mantle },
-          MasonNormal = { bg = colors.mantle },
-        }
-      end,
-    },
-  },
-
-  -- 4. Tell LazyVim to load Catppuccin by default
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
-  },
+	-- Ensure LazyVim knows to load this colorscheme
+	{
+		"LazyVim/LazyVim",
+		opts = {
+			colorscheme = "tokyonight",
+		},
+	},
 }
