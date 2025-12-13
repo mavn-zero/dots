@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=YT Music
-Comment=Launch YT Music as a chromeless webapp
-Exec=chromium --app=https://music.youtube.com
-Icon=youtube-music
-Terminal=false
-Type=Application
-Categories=Network;AudioVideo;Music;

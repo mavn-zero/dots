@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=WhatsApp
-Comment=Launch WhatsApp as a chromeless webapp
-Exec=chromium --app=https://web.whatsapp.com
-Icon=whatsapp
-Terminal=false
-Type=Application
-Categories=Network;Chat;

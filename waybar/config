@@ -95,6 +95,8 @@
     },
     "custom/power": {
         "format": "",
-        "on-click": "exec ~/dots/waybar/powermenu.sh",
+        "on-click": "wlogout",
+        "tooltip": false,
+        "tooltip-format": "Power Menu"
     }
 }

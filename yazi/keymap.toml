@@ -7,3 +7,13 @@ desc = "Go to DATA"
 on   = [ "W" ]
 run  = 'shell "~/dots/scripts/wallpaper.zsh \"$1\"" --orphan'
 desc = "Set as Wallpaper (Wallust + Awww)"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "t" ]
+run  = "cd ~/.local/share/Trash/files"
+desc = "Go to Trash Directory"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "T" ]
+run  = "shell 'kitty --class restore_float -e trash-restore' --block"
+desc = "Restore from trash"

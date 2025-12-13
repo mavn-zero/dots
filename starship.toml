@@ -1,3 +1,12 @@
+# -----------------------------------------------------------------------------
+# ARCHY'S PASTEL POWERLINE RICE
+# -----------------------------------------------------------------------------
+
+# A cleaner vertical spacing
+add_newline = true
+
+# THE FORMAT STRING
+# This dictates the order. I added $cpp which was missing.
 format = """
 [](#9A348E)\
 $os\
@@ -9,6 +18,7 @@ $git_branch\
 $git_status\
 [](fg:#FCA17D bg:#86BBD8)\
 $c\
+$cpp\
 $elixir\
 $elm\
 $golang\
@@ -27,123 +37,130 @@ $time\
 [ ](fg:#33658A)\
 """
 
-# Disable the blank line at the start of the prompt
-# add_newline = false
+# -----------------------------------------------------------------------------
+# MODULE SETTINGS
+# -----------------------------------------------------------------------------
 
-# You can also replace your username with a neat symbol like   or disable this
-# and use the os module below
+# 1. IDENTITY (Purple Block)
 [username]
 show_always = true
-style_user = "bg:#9A348E"
-style_root = "bg:#9A348E"
+style_user = "bg:#9A348E fg:#ffffff" # Added white text for contrast
+style_root = "bg:#9A348E fg:#ffffff"
 format = '[$user ]($style)'
 disabled = false
 
-# An alternative to the username module which displays a symbol that
-# represents the current operating system
 [os]
-style = "bg:#9A348E"
-disabled = true # Disabled by default
+style = "bg:#9A348E fg:#ffffff"
+disabled = false # ENABLED: Shows the Arch Logo!
+format = '[$symbol]($style)'
 
+[os.symbols]
+Arch = " "
+Linux = " "
+
+
+# 2. LOCATION (Pink Block)
 [directory]
-style = "bg:#DA627D"
+style = "bg:#DA627D fg:#ffffff"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
-# Here is how you can shorten some long paths by text replacement
-# similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
 "Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
-# Keep in mind that the order matters. For example:
-# "Important Documents" = " 󰈙 "
-# will not be replaced, because "Documents" was already substituted before.
-# So either put "Important Documents" before "Documents" or use the substituted version:
-# "Important 󰈙 " = " 󰈙 "
 
+
+# 3. GIT (Orange Block)
+[git_branch]
+symbol = ""
+style = "bg:#FCA17D fg:#000000" # Black text often reads better on orange
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#FCA17D fg:#000000"
+format = '[$all_status$ahead_behind ]($style)'
+
+
+# 4. LANGUAGES (Blue Block)
+# All language tools share the same background to merge into one bar
 [c]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [cpp]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#06969A"
-format = '[ $symbol $context ]($style)'
 
 [elixir]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [elm]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
-
-[git_branch]
-symbol = ""
-style = "bg:#FCA17D"
-format = '[ $symbol $branch ]($style)'
-
-[git_status]
-style = "bg:#FCA17D"
-format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [gradle]
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [haskell]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [java]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [julia]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [nim]
 symbol = "󰆥 "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [rust]
 symbol = ""
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [scala]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
+
+# 5. CONTAINERS (Teal Block)
+[docker_context]
+symbol = " "
+style = "bg:#06969A fg:#ffffff"
+format = '[ $symbol $context ]($style)'
+
+
+# 6. TIME (Dark Blue Block)
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
+time_format = "%R" # 24 Hour format
+style = "bg:#33658A fg:#ffffff"
 format = '[ ♥ $time ]($style)'

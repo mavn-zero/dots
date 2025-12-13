@@ -1,9 +1,9 @@
 # Wallust Kitty Template - Fixed Contrast
 
 # 1. CORE UI (Fixing Visibility)
-background         {{background}}
-foreground         {{foreground}}
-background_opacity 0.90
+# background         {{background}}
+# foreground         {{foreground}}
+# background_opacity 0.90
 
 # Cursor: Reverses text color so it's always visible
 cursor             {{cursor}}
