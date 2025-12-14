@@ -1,8 +1,6 @@
 /* =============================================================================
    1. IMPORT COLORS
    ========================================================================== */
-/* IMPORTANT: This relies on the new "Semantic" template we just created. 
-   It expects variables like @urgent, @success, @active to exist. */
 @import "/home/mavn/dots/waybar/colors.css";
 
 /* =============================================================================
@@ -142,6 +140,7 @@ window#waybar {
 
 /* --- CUSTOM POWER --- */
 #custom-power {
+    background-color: alpha(@background, 0.6); 
     color: @foreground; 
     border-radius: 8px;
     margin: 4px 4px;

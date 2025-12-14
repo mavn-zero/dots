@@ -17,29 +17,29 @@ set recolor-keephue true
 
 # --- Recolor Mode (The "Dark Mode" used when you press 'i') ---
 # This makes the "inverted" paper match your terminal background
-set recolor-lightcolor "#16181A"
-set recolor-darkcolor  "#F7FAFA"
+set recolor-lightcolor "{{background}}"
+set recolor-darkcolor  "{{foreground}}"
 
 # --- Default Appearance (Standard View) ---
 # Usually standard white/black for PDFs, but you can tint it if you want.
 # I recommend keeping these defaults for color accuracy in standard mode.
-set default-bg          "#16181A"
-set default-fg          "#F7FAFA"
+set default-bg          "{{background}}"
+set default-fg          "{{foreground}}"
 
 # --- Status Bar ---
-set statusbar-bg        "#3D3F41"
-set statusbar-fg        "#F7FAFA"
+set statusbar-bg        "{{color0}}"
+set statusbar-fg        "{{foreground}}"
 
 # --- Input Bar ---
-set inputbar-bg         "#3D3F41"
-set inputbar-fg         "#EBF0F0"
+set inputbar-bg         "{{color0}}"
+set inputbar-fg         "{{color7}}"
 
 # --- Highlighting ---
-set highlight-color        "#82967F"  # Warning/Yellowish
-set highlight-active-color "#7A7FA5"  # Success/Greenish
+set highlight-color        "{{color3}}"  # Warning/Yellowish
+set highlight-active-color "{{color2}}"  # Success/Greenish
 
 # --- UI Elements ---
-set page-separator-color   "#A4A8A8"
+set page-separator-color   "{{color8}}"
 
 # --- Status Bar Formatting ---
 set statusbar-show true

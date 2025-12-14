@@ -25,11 +25,8 @@ palette = "dark" #Optiions: dark, dark16, dark-comp, darkcomp, dark-comp16, dark
 # ==========================================
 
 [templates]
-# Note: Ensure the 'template' names on the left match the filenames 
-# inside ~/.config/wallust/templates/
 
 # Cava
-# (Assumes you named the template 'cava-config' per previous steps)
 cava = { template = 'cava.conf', target = '~/dots/cava/themes/adaptive' }
 
 # Hyprland
@@ -39,5 +36,7 @@ hypr = { template = 'hyprland', target = '~/dots/hypr/colors.conf' }
 kitty = { template = 'kitty', target = '~/.cache/wallust/colors-kitty.conf' }
 
 # Waybar 
-# (Assumes you named the template 'waybar-colors.css')
 waybar = { template = 'waybar', target = '~/dots/waybar/colors.css' }
+
+# Zathura
+zathura = { template = 'zathura', target = '~/dots/zathura/zathurarc'}

@@ -1,5 +1,6 @@
 
 # Wallust Hyprland Template
+$wallpaper = {{wallpaper}}
 
 $background = rgb({{background | strip}})
 $foreground = rgb({{foreground | strip}})
