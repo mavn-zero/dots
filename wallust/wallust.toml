@@ -40,3 +40,7 @@ waybar = { template = 'waybar', target = '~/dots/waybar/colors.css' }
 
 # Zathura
 zathura = { template = 'zathura', target = '~/dots/zathura/zathurarc'}
+
+# rmpc 
+
+rmpc = { template = 'rmpc', target = '~/.config/rmpc/themes/adaptive.ron'}

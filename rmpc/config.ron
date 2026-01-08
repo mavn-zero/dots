@@ -1,0 +1,87 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    address: "127.0.0.1:6600",
+    theme: "~/.config/rmpc/themes/adaptive",
+    enable_config_hot_reload: true,
+    volume_step: 2,
+    max_fps: 30,
+    album_art: (
+        method: Auto, 
+        max_size_px: (width: 1200, height: 1200),
+        vertical_align: Center,
+        horizontal_align: Center,
+    ),
+    lyrics: (
+        method: FileSystem(
+            music_dir: "/mnt/DATA/Music", // CHANGE THIS to your actual music folder
+            strategy: Name,
+        ),
+    ),
+    keybinds: (
+        global: {
+            ":":         CommandMode,
+            "q":         Quit,
+            "<Space>":   TogglePause,
+            "s":         Stop,
+            "~":         ShowHelp,
+            "1":         SwitchToTab("Now Playing"),
+            "2":         SwitchToTab("Lyrics"),
+            "3":         SwitchToTab("Queue"),
+            "4":         SwitchToTab("Library"),
+            "5":         SwitchToTab("Artists"),
+            "6":         SwitchToTab("Search"),
+            "H":         PreviousTab,
+            "L":         NextTab,
+            "<Up>":      VolumeUp,
+            "<Down>":    VolumeDown,
+            "<Right>":   SeekForward,
+            "<Left>":    SeekBack,
+            "<C-Right>": NextTrack,
+            "<C-Left>":  PreviousTrack,
+            "r":         ToggleRepeat,
+            "x":         ToggleRandom, 
+            "c":         ToggleConsume,
+            "z":         ToggleSingle,
+            "u":         Update,
+            "U":         Rescan,
+            "i":         ShowCurrentSongInfo,
+        },
+        navigation: {
+            "h": Left, "j": Down, "k": Up, "l": Right,
+            "g": Top, "G": Bottom, "v": Select, "a": Add,
+            "D": Delete, "i": FocusInput, "/": EnterSearch,
+            "<CR>": Confirm, "<Esc>": Close, "J": MoveDown, "K": MoveUp,
+        },
+        queue: {
+            "D": DeleteAll, "<CR>": Play, "d": Delete, "C": JumpToCurrent,
+        },
+    ),
+    tabs: [
+        (name: "Now Playing", pane: Pane(AlbumArt)),
+        (
+            name: "Lyrics",
+            pane: Split(
+                direction: Horizontal,
+                panes: [
+                    (size: "45%", pane: Pane(AlbumArt)),
+                    (size: "55%", pane: Pane(Lyrics)),
+                ],
+            ),
+        ),
+        (
+            name: "Queue",
+            pane: Split(
+                direction: Horizontal,
+                panes: [
+                    (size: "45%", pane: Pane(AlbumArt)),
+                    (size: "55%", pane: Pane(Queue)),
+                ],
+            ),
+        ),
+        (name: "Library", pane: Pane(Directories)),
+        (name: "Artists", pane: Pane(Artists)),
+        (name: "Search",  pane: Pane(Search)),
+    ],
+)

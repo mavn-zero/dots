@@ -17,3 +17,8 @@ desc = "Go to Trash Directory"
 on   = [ "g", "T" ]
 run  = "shell 'kitty --class restore_float -e trash-restore' --block"
 desc = "Restore from trash"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "m" ]
+run  = "cd /mnt/DATA/Music/"
+desc = "Go to Music"

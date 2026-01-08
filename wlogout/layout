@@ -13,8 +13,8 @@
 {
     "label" : "logout",
     "action" : "loginctl terminate-user $USER",
-    "text" : "Logout",
-    "keybind" : "m"
+    "text" : "logOut",
+    "keybind" : "o"
 }
 {
     "label" : "shutdown",
@@ -25,7 +25,7 @@
 {
     "label" : "suspend",
     "action" : "systemctl suspend",
-    "text" : "Suspend",
+    "text" : "sUspend",
     "keybind" : "u"
 }
 {

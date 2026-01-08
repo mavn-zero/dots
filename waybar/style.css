@@ -11,7 +11,7 @@ window#waybar {
     font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
     font-size: 18px;
     font-weight: bold;
-    background-color: alpha(@background, 0.6); 
+    background-color: alpha(@background, 0.4); 
     color: @foreground;
 }
 

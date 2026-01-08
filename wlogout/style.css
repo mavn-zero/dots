@@ -1,11 +1,10 @@
-/* Window Background - semi-transparent dark grey */
 window {
-    background-color: rgba(12, 12, 12, 0.8);
+    background-color: rgba(0, 0, 0, 0);
 }
 
 /* Button Reset */
 button {
-    background-color: #1E1E1E;
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 16px;        /* Rounded corners */
     border: 2px solid #000000;  /* Subtle border */
     margin: 10px;               /* Space between buttons */
@@ -17,7 +16,7 @@ button {
 }
 
 /* Hover Effect - Uses your preferred Purple */
-button:focus, button:active, button:hover {
+button:focus, button:active {
     background-color: #3700B3;
     border-color: #5800E3;     /* Lighter purple border on hover */
     outline-style: none;

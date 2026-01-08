@@ -1,6 +1,13 @@
 [color]
 
 gradient = 1
-gradient_color_1 = '#20B3DA' 
-gradient_color_2 = '#E8F1F1'
-gradient_color_3 = '#EBF0F0'
+gradient_color_1 = '#B1866A' 
+gradient_color_2 = '#E5D2C0'
+gradient_color_3 = '#EAE0D7'
+
+# horizontal_gradient = 1
+# horizontal_gradient_color_1 = '#B1866A'
+# horizontal_gradient_color_2 = '#E5D2C0'
+# horizontal_gradient_color_3 = '#EAE0D7'
+
+# blend_direction = 'up'
