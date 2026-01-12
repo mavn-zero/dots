@@ -1,0 +1,42 @@
+#![enable(implicit_some)]
+(
+    // --- Dynamic Color Injection ---
+    album_art_foreground: "{{color4}}",
+    album_art_background: "{{color0}}",
+    text_color: "{{color7}}",
+    header_background: "{{color0}}",
+    header_foreground: "{{color6}}",
+    scrollbar_track_color: "{{color8}}",
+    scrollbar_handle_color: "{{color4}}",
+    
+    // --- Modern Progress Bar Config ---
+    progress_bar: (
+        symbols: ["█", "█", "", " ", " "], // Transitioning from filled to empty with a powerline glyph
+        track_style: (fg: "{{color8}}"),     // Muted/Dark background for the track
+        elapsed_style: (fg: "{{color4}}"),   // Primary accent (e.g., Blue)
+        thumb_style: (fg: "{{color4}}", bg: "{{color8}}"),
+    ),
+
+    // --- Modern UI Elements ---
+    symbols: (
+        song: "󰎆 ",
+        dir: "󰉋 ",
+        marker: "󰓃 ", // A cleaner, more modern marker than '❯'
+    ),
+
+    state_playing_color: "{{color2}}",
+    state_paused_color: "{{color3}}",
+    current_item_foreground: "{{color4}}",
+    current_item_background: "{{color0}}",
+
+    layout: (
+        album_art_size: 40, // Increased for a more 'Now Playing' focus
+        say_hi: false,
+    ),
+    
+    browser_column_widths: (
+        artist: 25,
+        album: 25,
+        title: 50,
+    ),
+)
