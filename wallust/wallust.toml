@@ -30,7 +30,7 @@ palette = "dark" #Optiions: dark, dark16, dark-comp, darkcomp, dark-comp16, dark
 cava = { template = 'cava.conf', target = '~/dots/cava/themes/adaptive' }
 
 # Hyprland
-hypr = { template = 'hyprland', target = '~/dots/hypr/colors.conf' }
+hypr = { template = 'colors.conf', target = '~/dots/hypr/colors.conf' }
 
 # Kitty
 kitty = { template = 'kitty', target = '~/.cache/wallust/colors-kitty.conf' }

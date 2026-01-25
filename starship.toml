@@ -1,162 +1,62 @@
-# A cleaner vertical spacing
 add_newline = true
 
 # THE FORMAT STRING
-# This dictates the order. I added $cpp which was missing.
+# Combined the left side into a single flow and kept the right side isolated
 format = """
-[](#9A348E)\
-$os\
-$username\
-[](bg:#DA627D fg:#9A348E)\
-$directory\
-[](fg:#DA627D bg:#FCA17D)\
-$git_branch\
-$git_status\
-[](fg:#FCA17D bg:#86BBD8)\
-$c\
-$cpp\
-$elixir\
-$elm\
-$golang\
-$gradle\
-$haskell\
-$java\
-$julia\
-$nodejs\
-$nim\
-$rust\
-$scala\
-[](fg:#86BBD8 bg:#06969A)\
-$docker_context\
-[](fg:#06969A bg:#33658A)\
-$time\
-[ ](fg:#33658A)\
-"""
+$os$directory$git_branch$git_status$fill$c$cpp$nodejs$rust$java$time
+$character"""
 
-# -----------------------------------------------------------------------------
-# MODULE SETTINGS
-# -----------------------------------------------------------------------------
+[fill]
+symbol = " "
 
-# 1. IDENTITY (Purple Block)
-[username]
-show_always = true
-style_user = "bg:#9A348E fg:#ffffff" # Added white text for contrast
-style_root = "bg:#9A348E fg:#ffffff"
-format = '[$user ]($style)'
-disabled = true
-
+# 1. IDENTITY - Explicitly closing the 'bg' here to prevent the square leak
 [os]
+disabled = true
 style = "bg:#9A348E fg:#ffffff"
-disabled = false 
-format = '[$symbol]($style)'
+format = "[](#9A348E)[$symbol]($style)[](fg:#9A348E bg:none) "
 
 [os.symbols]
 Arch = " "
-Linux = " "
+Linux = " " 
 
-
-# 2. LOCATION (Pink Block)
+# 2. LOCATION - Clean Ribbon
 [directory]
 style = "bg:#DA627D fg:#ffffff"
-format = "[ $path ]($style)"
+# We wrap the directory in its own capsule to avoid 'trailing square' syndrome
+format = "[](#DA627D)[$path]($style)[](fg:#DA627D bg:none) "
 truncation_length = 3
-truncation_symbol = "…/"
 
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Photos" = " "
-
-
-# 3. GIT (Orange Block)
+# 3. GIT - The Fixed Syntax (No more 'expected variable' error)
 [git_branch]
 symbol = ""
-style = "bg:#FCA17D fg:#000000" # Black text often reads better on orange
-format = '[ $symbol $branch ]($style)'
+style = "bg:#FCA17D fg:#000000"
+# Notice we use parentheses ( ) for grouping now, which doesn't trigger TOML errors
+format = "([](fg:#FCA17D)[$symbol $branch|]($style))"
 
 [git_status]
 style = "bg:#FCA17D fg:#000000"
-format = '[$all_status$ahead_behind ]($style)'
+# Fixed the double-bracket error from your screenshot
+format = "([$all_status$ahead_behind]($style)[](fg:#FCA17D bg:none) )"
 
-
-# 4. LANGUAGES (Blue Block)
-# All language tools share the same background to merge into one bar
-[c]
-symbol = " "
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
+# 4. LANGUAGES (Right-Side Isolated Capsules)
 [cpp]
 symbol = " "
 style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
-[elixir]
-symbol = " "
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
-[golang]
-symbol = " "
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
-[gradle]
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
-[haskell]
-symbol = " "
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
-[java]
-symbol = " "
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
-[julia]
-symbol = " "
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
-[nodejs]
-symbol = ""
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
-[nim]
-symbol = "󰆥 "
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
+format = "[](fg:#86BBD8)[$symbol]($style)[](fg:#86BBD8 bg:none) "
 
 [rust]
 symbol = ""
 style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
+format = "[](fg:#86BBD8)[$symbol]($style)[](fg:#86BBD8 bg:none) "
 
-[scala]
-symbol = " "
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
-
-# 5. CONTAINERS (Teal Block)
-[docker_context]
-symbol = " "
-style = "bg:#06969A fg:#ffffff"
-format = '[ $symbol $context ]($style)'
-
-
-# 6. TIME (Dark Blue Block)
+# 5. TIME - The Right Anchor
 [time]
 disabled = false
-time_format = "%R" # 24 Hour format
+time_format = "%R"
 style = "bg:#33658A fg:#ffffff"
-format = '[ ♥ $time ]($style)'
+# Symmetrical left-pointing arrow for the start of the right-side capsule
+format = "[](fg:#33658A bg:none)[ ♥ $time ]($style)[](fg:#33658A bg:none)"
+
+[character]
+success_symbol = "[╰─>](bold #86BBD8) "
+error_symbol = "[╰─>](bold #DA627D) "

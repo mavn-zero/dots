@@ -1,6 +1,3 @@
-# Wallust Kitty Template - Fixed Contrast
-
-# 1. CORE UI (Fixing Visibility)
 # background         {{background}}
 # foreground         {{foreground}}
 # background_opacity 0.90

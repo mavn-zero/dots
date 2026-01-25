@@ -1,45 +1,51 @@
-@import url("waybar-colors2.css");
+/*ln -s ~/dots/wofi/style.css ~/.config/wofi/style.css for symlink*/
 
-#window {
-    margin: 0px;
-    border-radius: 18px;
-    background-color: alpha(@dark-background,1.0);
-    color:@dark-background;
-
+/* Main window */
+window {
+    margin: 5px;
+    background-color: #282a36; /* Dark background */
+    border: 2px solid #44475a;  /* Slightly lighter border */
+    border-radius: 8px;
 }
 
+/* Search input bar */
 #input {
-    margin: 10px;
-    background-color: alpha(@dark-on-secondary-fixed-variant, 0.7);
-    color: @dark-on-background;
-    border-radius: 25px;
-    border: 0px solid #83a598;
-}
-
-#scroll {
-    margin-bottom: 15px;
-}
-
-#entry {
-    margin: 0px 10px;
-}
-
-#entry:selected {
-    /*background-color: /*rgb(245, 98, 36);*/
-    background-color:  alpha(@dark-primary, 1.0);
-    color: @dark-background;
-    border-radius: 10px;
+    margin: 5px;
+    padding: 8px;
     border: none;
-    outline: none;
+    color: #f8f8f2;             /* Light text */
+    background-color: #44475a; /* Slightly lighter background */
+    border-radius: 4px;
+    font-weight: bold;
 }
 
-#entry > box {
-    margin-left: 16px;
+/* Inner box containing results */
+#inner-box {
+    margin: 5px;
+    background-color: #282a36;
 }
 
-
-#entry image {
-    padding-right: 10px;
+/* Result entries */
+#entry {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: #f8f8f2; /* Light text */
 }
 
+/* Selected result entry */
+#entry:selected {
+    background-color: #6272a4; /* Selection color */
+    color: #f8f8f2;
+    font-weight: bold;
+}
 
+/* Text of the result */
+#text {
+    color: #f8f8f2;
+}
+
+/* Text of the selected result */
+#entry:selected #text {
+    color: #f8f8f2;
+}
