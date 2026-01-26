@@ -1,7 +1,5 @@
 add_newline = true
 
-# THE FORMAT STRING
-# Combined the left side into a single flow and kept the right side isolated
 format = """
 $os$directory$git_branch$git_status$fill$c$cpp$nodejs$rust$java$time
 $character"""
@@ -9,7 +7,6 @@ $character"""
 [fill]
 symbol = " "
 
-# 1. IDENTITY - Explicitly closing the 'bg' here to prevent the square leak
 [os]
 disabled = true
 style = "bg:#9A348E fg:#ffffff"
@@ -19,26 +16,20 @@ format = "[](#9A348E)[$symbol]($style)[](fg:#9A348E bg:none) "
 Arch = " "
 Linux = " " 
 
-# 2. LOCATION - Clean Ribbon
 [directory]
 style = "bg:#DA627D fg:#ffffff"
-# We wrap the directory in its own capsule to avoid 'trailing square' syndrome
 format = "[](#DA627D)[$path]($style)[](fg:#DA627D bg:none) "
 truncation_length = 3
 
-# 3. GIT - The Fixed Syntax (No more 'expected variable' error)
 [git_branch]
 symbol = ""
 style = "bg:#FCA17D fg:#000000"
-# Notice we use parentheses ( ) for grouping now, which doesn't trigger TOML errors
 format = "([](fg:#FCA17D)[$symbol $branch|]($style))"
 
 [git_status]
 style = "bg:#FCA17D fg:#000000"
-# Fixed the double-bracket error from your screenshot
 format = "([$all_status$ahead_behind]($style)[](fg:#FCA17D bg:none) )"
 
-# 4. LANGUAGES (Right-Side Isolated Capsules)
 [cpp]
 symbol = " "
 style = "bg:#86BBD8 fg:#000000"
@@ -49,12 +40,10 @@ symbol = ""
 style = "bg:#86BBD8 fg:#000000"
 format = "[](fg:#86BBD8)[$symbol]($style)[](fg:#86BBD8 bg:none) "
 
-# 5. TIME - The Right Anchor
 [time]
 disabled = false
 time_format = "%R"
 style = "bg:#33658A fg:#ffffff"
-# Symmetrical left-pointing arrow for the start of the right-side capsule
 format = "[](fg:#33658A bg:none)[ ♥ $time ]($style)[](fg:#33658A bg:none)"
 
 [character]

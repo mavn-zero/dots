@@ -109,7 +109,7 @@
         "tooltip-format": "<big>{:%Y-%m-%d}</big>\n<tt>{calendar}</tt>"
     },
     "custom/power": {
-        "format": "",
+        "format": "󰣇",
         "on-click": "wlogout",
         "tooltip": false,
         "tooltip-format": "Power Menu"
